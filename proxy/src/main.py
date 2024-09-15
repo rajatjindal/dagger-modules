@@ -25,7 +25,7 @@ def init() -> dagger.Container:
 user  nginx;
 worker_processes  auto;
 
-error_log  /dev/stdout debug;
+error_log  stdout;
 pid        /var/run/nginx.pid;
 
 events {{
@@ -42,7 +42,7 @@ http {{
                       '$status $body_bytes_sent "$http_referer" '
                       '"$http_user_agent" "$http_x_forwarded_for"';
 
-    access_log  /dev/stdout debug;
+    access_log stdout;
 
     sendfile        on;
     #tcp_nopush     on;
